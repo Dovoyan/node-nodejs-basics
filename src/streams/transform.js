@@ -1,5 +1,12 @@
+import fs from 'fs';
+
 const transform = async () => {
-    // Write your code here 
+
+
+    process.stdin.on('data', data => {
+        console.log(`You typed ${data.toString()}`);
+        process.exit();
+    });
 };
 
 await transform();
