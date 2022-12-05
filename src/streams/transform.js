@@ -1,12 +1,13 @@
 import fs from 'fs';
 
 const transform = async () => {
-
-
-    process.stdin.on('data', data => {
-        console.log(`You typed ${data.toString()}`);
-        process.exit();
+    const reverse = new Transform({
+        transform(chunk, encoding, callback) {
+            callback(null, chunk.toString().split("").reverse().join(""));
+        },
     });
+
+    process.stdin.pipe(reverse).pipe(process.stdout)
 };
 
 await transform();
