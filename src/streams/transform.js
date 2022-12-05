@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { Transform } from 'stream';
 
 const transform = async () => {
     const reverse = new Transform({
